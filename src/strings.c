@@ -3,7 +3,7 @@
 #include <string.h>
 #include "../include/gc.h"
 
-static String Strings_NewFn(const char* text) {
+static String Strings_New(const char* text) {
     size_t byte_len  = strlen(text);
     
     char* buf = (char*)GC_Alloc(byte_len  + 1);
@@ -22,5 +22,5 @@ static String Strings_NewFn(const char* text) {
 }
 
 const StringsStruct Strings = {
-    .New = Strings_NewFn
+    .New = Strings_New
 };

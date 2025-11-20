@@ -6,5 +6,6 @@
 #include "ints.h"
 #include "encoding.h"
 #include "convert.h"
+#include "file.h"
 
 #endif // CSHARPIER_H

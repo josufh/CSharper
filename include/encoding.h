@@ -5,8 +5,8 @@
 #include "bytes.h"
 
 typedef struct EncodingStruct EncodingStruct;
-typedef Bytes (*GetBytesFn)(String);
-typedef String (*GetStringFn)(Bytes);
+typedef Bytes (*GetBytesFn)(String string);
+typedef String (*GetStringFn)(Bytes bytes);
 
 struct EncodingStruct {
     GetBytesFn GetBytes;

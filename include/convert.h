@@ -5,8 +5,8 @@
 #include "bytes.h"
 
 typedef struct ConvertStruct ConvertStruct;
-typedef String (*ToBase64Fn)(Bytes);
-typedef Bytes (*FromBase64Fn)(String);
+typedef String (*ToBase64Fn)(Bytes bytes);
+typedef Bytes (*FromBase64Fn)(String string);
 
 struct ConvertStruct {
     ToBase64Fn ToBase64;

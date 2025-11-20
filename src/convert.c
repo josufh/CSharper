@@ -9,7 +9,7 @@ static const char BASE64_ALPHABET[] =
     "abcdefghijklmnopqrstuvwxyz"
     "0123456789+/";
 
-static String Convert_ToBase64Fn(Bytes bytes) {
+static String Convert_ToBase64(Bytes bytes) {
     const unsigned char* data = bytes.Data;
     size_t len = bytes.Length;
 
@@ -82,7 +82,7 @@ static const int8_t BASE64_REVERSE[256] = {
     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
 };
 
-Bytes Convert_FromBase64Fn(String string) {
+Bytes Convert_FromBase64(String string) {
     const char* b64 = string.Value;
 
     size_t len = 0;
@@ -129,6 +129,6 @@ Bytes Convert_FromBase64Fn(String string) {
 }
 
 const ConvertStruct Convert = {
-    .ToBase64 = Convert_ToBase64Fn,
-    .FromBase64 = Convert_FromBase64Fn
+    .ToBase64 = Convert_ToBase64,
+    .FromBase64 = Convert_FromBase64
 };

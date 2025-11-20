@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include "strings.h"
 
-static void Console_WriteLineFn(const char* format, ...)
+static void Console_WriteLine(const char* format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -64,11 +64,11 @@ static void Console_WriteLineFn(const char* format, ...)
     putchar('\n');
 }
 
-static void Console_LineBreakFn() {
+static void Console_LineBreak() {
     putchar('\n');
 }
 
 const ConsoleStruct Console = {
-    .WriteLine = Console_WriteLineFn,
-    .LineBreak = Console_LineBreakFn
+    .WriteLine = Console_WriteLine,
+    .LineBreak = Console_LineBreak
 };

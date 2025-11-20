@@ -3,17 +3,14 @@ CFLAGS  := -Wall -Wextra -std=c11 -Iinclude -I.
 
 PROGRAM := csharpier
 
-# All .c files in src
 SRC_SRCS := $(wildcard src/*.c)
 SRC_OBJS := $(SRC_SRCS:.c=.o)
 
-# Tests
 TEST_SRCS := $(wildcard tests/*.c)
 TEST_BINS := $(patsubst tests/%.c,tests/%,$(TEST_SRCS))
 
 .PHONY: all build test clean
 
-# Default target: build main program
 all: build
 
 build: $(PROGRAM)
@@ -23,8 +20,6 @@ $(PROGRAM): main.o $(SRC_OBJS)
 
 main.o: main.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-# ---------- Tests ----------
 
 test: $(TEST_BINS)
 	@set -e; \

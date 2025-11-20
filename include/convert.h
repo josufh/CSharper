@@ -6,9 +6,11 @@
 
 typedef struct ConvertStruct ConvertStruct;
 typedef String (*ToBase64Fn)(Bytes);
+typedef Bytes (*FromBase64Fn)(String);
 
 struct ConvertStruct {
     ToBase64Fn ToBase64;
+    FromBase64Fn FromBase64;
 };
 
 extern const ConvertStruct Convert;

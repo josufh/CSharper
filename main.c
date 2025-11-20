@@ -7,8 +7,14 @@ int main(void) {
 
     String base64 = Convert.ToBase64(bytes);
 
-    Console.WriteLine("%s", string);
+    Console.WriteLine("%s: %zu", string, string.Length);
     Console.WriteLine("%s", base64);
+
+    Console.LineBreak();
+
+    Bytes back = Convert.FromBase64(base64);
+    Console.WriteLine("Decoded back: %s", back);
+    Console.WriteLine("Length: %zu", back.Length);
 
     return 0;
 }

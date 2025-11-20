@@ -1,7 +1,7 @@
 CC      := cc
 CFLAGS  := -Wall -Wextra -std=c11 -Iinclude -I.
 
-PROGRAM := csharpier
+PROGRAM := csharper
 
 SRC_SRCS := $(wildcard src/*.c)
 SRC_OBJS := $(SRC_SRCS:.c=.o)

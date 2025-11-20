@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include "gc.h"
 
 static const char BASE64_ALPHABET[] =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -17,10 +18,7 @@ static String Convert_ToBase64Fn(Bytes bytes) {
     }
 
     size_t out_len = 4 * ((len + 2) / 3);
-    char* out = (char*)malloc(out_len + 1);
-    if (!out) {
-        exit(69);
-    }
+    char* out = (char*)GC_Alloc(out_len + 1);
 
     size_t i = 0;
     size_t o = 0;
@@ -61,7 +59,8 @@ static String Convert_ToBase64Fn(Bytes bytes) {
 
     out[o] = '\0';
 
-    return Strings.New(out);
+    String string = {out, out_len};
+    return string;
 }
 
 const ConvertStruct Convert = {

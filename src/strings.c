@@ -1,15 +1,14 @@
-#include "strings.h"
-#include <stdlib.h>
+#include "../include/strings.h" // for some reason vscode is not getting strings.h
+
 #include <string.h>
+#include "../include/gc.h"
 
 static String Strings_NewFn(const char* text) {
     size_t len = strlen(text);
     
-    char* buf = (char*)malloc(len + 1);
+    char* buf = (char*)GC_Alloc(len + 1);
     if (buf) {
         memcpy(buf, text, len + 1);
-    } else {
-        exit(69);
     }
     
     String string = {buf, len};

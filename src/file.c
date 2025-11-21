@@ -103,16 +103,16 @@ static Bytes File_ReadAllBytes(String path) {
         READ_ALL_BYTES__RETURN_RESULT(NULL, 0);
     }
     
-    size_t size = ftell(f);
+    long size = ftell(f);
     if (size < 0) {
         fclose(f);
         READ_ALL_BYTES__RETURN_RESULT(NULL, 0);
     }
 
-    unsigned char *buf = (unsigned char*)GC_Alloc(size);
+    unsigned char *buf = (unsigned char*)GC_Alloc((size_t)size);
     // TODO maybe pool of FILE handlers
 
-    size_t readCount = fread(buf, 1, size, f);
+    size_t readCount = fread(buf, 1, (size_t)size, f);
     fclose(f);
 
     READ_ALL_BYTES__RETURN_RESULT(buf, readCount);
